@@ -5,7 +5,7 @@
 <web-app>
  <display-name>Knodex Web Application</display-name>
 
-	<!-- <servlet>
+	<servlet>
 		<servlet-name>knodexapp</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
@@ -19,10 +19,10 @@
 
 	<servlet-mapping>
 		<servlet-name>knodexapp</servlet-name>
-		<url-pattern>/*</url-pattern>
+		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
-	<listener> <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class> 
+	<!-- <listener> <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class> 
 		</listener> <context-param> <param-name>contextConfigLocation</param-name> 
 		<param-value> /WEB-INF/spring/jdbc/spring-jdbc.xml /WEB-INF/spring/security/spring-security-context.xml 
 		</param-value> </context-param> -->

@@ -7,10 +7,9 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class KxLoginController {
 	
-	@RequestMapping("/Knodex")
+	@RequestMapping("/KnodexApp")
     public ModelAndView landingPage() {
-        String message = "<br><div align='center'><h1>Hello from HelloWorld controller.<h1>this is from method 1st<br>";
-        return new ModelAndView("index", "message1", message);
+        return new ModelAndView("index");
     }
-    
+	
 }
