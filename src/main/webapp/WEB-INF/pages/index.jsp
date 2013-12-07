@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
+    <meta name="description" content="Knodex is an indexing application to order and index whatever we have added into the it.">
     <meta name="author" content="Abubacker Siddik A, abuabdul.com">
     <link rel="shortcut icon" href="ico/favicon.png">
 
@@ -52,8 +52,15 @@
 
       <!-- Main Index Adder -->
       <div class="jumbotron">
-        <p>To see the difference between static and fixed top navbars, just scroll.
-          <a class="btn btn-lg btn-primary" href="" role="button">Index it...!</a>
+			<div class="input-group input-group-lg">
+				<span class="input-group-btn input-group-btn-lg">
+					<button class="btn btn-lg btn-primary" type="button">
+					  <i class="glyphicon glyphicon-book"></i>
+					   Index it...!
+					</button>
+				</span> <input type="text" class="form-control">
+			</div>
+			<!-- /input-group -->
         </p>
       </div>
 
