@@ -12,15 +12,29 @@
 
 	<context:component-scan base-package="com.abuabdul.knodex.controller" />
 
-	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<bean id="tilesviewResolver" class="org.springframework.web.servlet.view.tiles3.TilesViewResolver">
+	  <property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView" />
+	  <property name="order" value="0" />
+    </bean>
+
+    <!-- <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
 			<value>/WEB-INF/pages/</value>
 		</property>
 		<property name="suffix">
 			<value>.jsp</value>
 		</property>
+		<property name="order" value="1" />
+	</bean> -->
+	
+	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<property name="definitions">
+			<list>
+			  <value>/WEB-INF/tiles-def.xml</value>
+			</list>
+		</property>
 	</bean>
-
+	
 	<mvc:resources mapping="/resources/**" location="/themes/"/>
 
 	<mvc:annotation-driven />

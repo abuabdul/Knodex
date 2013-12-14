@@ -9,15 +9,17 @@
 	background-color: #A0CCF2; 
 	border: 1px #eee solid;
 	border-radius: 4px;
-	opacity:0.86;
-	filter:alpha(opacity=86); /* For IE8 and earlier */
+	opacity:0.78;
+	filter:alpha(opacity=78); /* For IE8 and earlier */
+	-webkit-box-shadow: 6px 6px 4px 0px rgba(153, 153, 153, 0.75);
+	-moz-box-shadow: 6px 6px 4px 0px rgba(153, 153, 153, 0.75);
+	box-shadow: 6px 6px 4px 0px rgba(153, 153, 153, 0.75);
 	/**
 	 * - If you set a background-image, border/padding/background-color will be ingnored.
 	 *   You can set any padding to .tip-inner instead if you need.
 	 * - If you want a tiled background-image and border/padding for the tip,
 	 *   set the background-image to .tip-inner instead.
-	 */
-}
+	 */}
 .tip-knodexblue .tip-inner {
 	font:bold 13px/15px 'trebuchet ms',arial,helvetica,sans-serif;
 	padding:0 3px 1px 3px;
