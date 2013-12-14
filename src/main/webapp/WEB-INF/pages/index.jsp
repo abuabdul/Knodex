@@ -16,6 +16,9 @@
 
     <!-- Custom styles for this template -->
     <link href="<c:url value="/resources/css/knodex.css"/>" rel="stylesheet">
+    
+    <!-- poshy tooltip for this about page -->
+	<link href="<c:url value="/resources/css/tip-knodexblue.css"/>" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="<c:url value="/resources/js/ie8-responsive-file-warning.js"/>"></script><![endif]-->
@@ -42,7 +45,7 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="javascript:alert('hi');">About</a></li>
+            <li class="active cursor"><a id="AboutMsg">About</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -102,5 +105,39 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/jquery.poshytip.js"/>"></script>
+    
+    <script type="text/javascript">
+      $(document).ready(function () {
+    	  
+    	  var _aboutKnodexMsg = '<div class="text-center"><h5><span class="glyphicon glyphicon-book"></span> <span style="font-size: 16px;">K</span><span style="font-size: 12px;">NO</span>dex</h5></div>' +
+    	                         '<div style="border-bottom: 1px solid #eee; width: 100%; height: 2px;">&nbsp;</div><br/> ' +
+    	                         '<span style="font-size: 16px;">K</span><span style="font-size: 12px;">NO</span>dex is a knowledge indexing tool basically. '+
+    	                         'Most of the time, we learn something new and  tend to forget often. This indexer will add your knowledge as key value pair in the main knowledge stream.'+
+    	                         ' </div>';
+    	  
+    	  $("#AboutMsg").poshytip({
+    		  content: _aboutKnodexMsg,
+    		  className: 'tip-knodexblue',
+    		  showOn: 'none',
+    		  alignTo: 'target',
+    	      alignX: 'left',
+    		  offsetX: 0,
+      		  offsetY: 3,
+      		  fade: true
+    	  });
+    	  
+    	  $(document).click(function(e){
+    		  if(e.target.id != 'AboutMsg'){
+    		    $("#AboutMsg").poshytip('hide');
+    		  }
+    	  });
+    	  
+    	  $("#AboutMsg").click(function(){
+    		  $(this).poshytip('show');
+    	  }) 
+      });
+      
+    </script>
   </body>
 </html>

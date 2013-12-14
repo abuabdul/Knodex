@@ -11,5 +11,9 @@ body {
 	position: fixed;
 	left: 100px;
 	top: 70px;
-	z-index: 1030;
+	z-index: 500;
+}
+
+.cursor{
+	cursor: pointer;
 }
