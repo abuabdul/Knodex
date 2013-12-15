@@ -31,7 +31,7 @@ public class KxLandingController {
 
 	@RequestMapping("/")
 	public String landingPage() {
-		return "viewResults";
+		return "landingPage";
 	}
 
 }
