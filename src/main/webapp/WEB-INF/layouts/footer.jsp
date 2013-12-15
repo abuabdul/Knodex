@@ -12,6 +12,21 @@
     <script type="text/javascript">
       $(document).ready(function () {
     	  
+    	  $(window).scroll(function () {
+    		  if($(this).scrollTop() > 55){
+    			  $('#Logo').removeClass('logo-absolute');
+    			  $('#Logo').addClass('logo-fixed');
+    			  $('#Indexer').removeClass('index-absolute');
+    			  $('#Indexer').addClass('index-fixed');
+    		  }
+    		  if($(this).scrollTop() == 0){
+    			  $('#Logo').removeClass('logo-fixed');
+    			  $('#Logo').addClass('logo-absolute');
+    			  $('#Indexer').removeClass('index-fixed');
+    			  $('#Indexer').addClass('index-absolute');
+    		  }
+    	  });
+    	  
     	  var _aboutKnodexMsg = $("#AboutKnodex").html();
     	  
     	  $("#AboutMsg").poshytip({

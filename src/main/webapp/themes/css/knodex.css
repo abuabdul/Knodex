@@ -22,18 +22,48 @@ body {
 	padding: 3px;
 }
 
+.logo-absolute {
+	position: absolute;
+	left: 50px;
+	top: 90px;
+}
+
+.index-absolute {
+	position: absolute;
+	left: 50px;
+	top: 150px;
+}
+
 .logo-fixed {
 	position: fixed;
-	left: 100px;
-	top: 60px;
+	left: 50px;
+	top: 50px;
 	z-index: 500;
+	background-color: #fff;
 }
 
 .index-fixed {
 	position: fixed;
-	left: 100px;
-	top: 120px;
+	left: 50px;
+	top: 110px;
 	z-index: 500;
+	background-color: #fff;
+}
+
+.content-absolute {
+	position: absolute;
+	left: 50px;
+	top: 290px;
+}
+
+.content-place {
+  padding: 15px;
+  margin-bottom: 15px;
+  font-size: 21px;
+  font-weight: 200;
+  line-height: 2.1428571435;
+  color: inherit;
+  background-color: #eeeeee;
 }
 
 .cursor {

@@ -29,9 +29,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class KxLandingController {
 
-	@RequestMapping("/KnodexApp")
+	@RequestMapping("/")
 	public String landingPage() {
-		return "landingPage";
+		return "viewResults";
 	}
 
 }

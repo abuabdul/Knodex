@@ -1,9 +1,9 @@
-  <div class="logo-fixed">
+   <div id="Logo" class="logo-absolute">
        <div class="container">
           <span class="logoFont">K<span class="logoNoSize">NO</span><span class="logoDexColor">dex</span></span>
        </div> 
     </div>   
-    <div class="index-fixed">
+    <div id="Indexer" class="index-absolute">
      <div class="container">
       <!-- Main Index Adder -->
       <div class="jumbotron">
