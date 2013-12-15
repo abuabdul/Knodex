@@ -47,7 +47,6 @@ body {
 	left: 50px;
 	top: 110px;
 	z-index: 500;
-	background-color: #fff;
 }
 
 .content-absolute {
@@ -63,7 +62,7 @@ body {
   font-weight: 200;
   line-height: 2.1428571435;
   color: inherit;
-  background-color: #eeeeee;
+  background-color: #EDF4FA;
 }
 
 .cursor {

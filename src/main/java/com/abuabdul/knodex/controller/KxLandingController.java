@@ -17,21 +17,29 @@
 
 package com.abuabdul.knodex.controller;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * @author abuabdul
  * 
- * This is the main controller that handles web requests for KNOdex application
- *
+ *         This is the main controller that handles web requests for KNOdex
+ *         application
+ * 
  */
 @Controller
 public class KxLandingController {
 
+	// Define a static logger variable so that it references the
+	// Logger instance named "KxLandingController".
+	private static final Logger log = LogManager.getLogger(KxLandingController.class.getName());
+
 	@RequestMapping("/")
 	public String landingPage() {
-		return "landingPage";
+		log.debug("Entering landingPage() in the KxLandingController");
+		return "viewResults";
 	}
 
 }
