@@ -21,8 +21,12 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.abuabdul.knodex.model.KnodexForm;
 
 /**
  * @author abuabdul
@@ -38,17 +42,20 @@ public class KxLandingController {
 	// Logger instance named "KxLandingController".
 	private static final Logger log = LogManager.getLogger(KxLandingController.class.getName());
 
-	@RequestMapping("/landingPage")
-	public void landingPage() {
+	@RequestMapping("/")
+	public String landingPage(Model model) {
 		log.debug("Entering landingPage() in the KxLandingController");
-		//return "landingPage";
+		// Create new KnodexForm object and set it in the model
+		model.addAttribute("knodexForm", new KnodexForm());
+		return "landingPage";
 	}
-	
-	@RequestMapping("/indexInfo")
-	public ModelAndView indexInformation(Model model,String indexer) {
+
+	@RequestMapping("/add/knodexSentenceToIndex")
+	public ModelAndView indexInformation(@ModelAttribute("knodexForm") KnodexForm knodex) {
 		log.debug("Entering indexInformation() in the KxLandingController");
+		log.debug("Printing knodex sentence... "+knodex.getIndexSentence());
 		ModelAndView mav = new ModelAndView("viewResults");
-		mav.addObject("model", model);
+		mav.addObject("knodexForm", new KnodexForm());
 		return mav;
 	}
 
