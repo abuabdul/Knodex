@@ -10,12 +10,17 @@
 	<script src="<c:url value="/resources/js/jquery.poshytip.js"/>"></script>
     
     <script type="text/javascript">
+      function listIndexBy(indexBy){
+    	  alert('indexBy = '+indexBy);
+    	  $("#indexBy").val(indexBy);
+      }
+    
       $(document).ready(function () {
     	  
     	  var isAnimated = false;
     	  
     	  $(window).scroll(function () {
-    		  if($(this).scrollTop() > 280 && !isAnimated){
+    		  if($(this).scrollTop() > 55 && !isAnimated){
     			  $('#Logo').removeClass('logo-absolute');
     			  $('#Indexer').removeClass('index-absolute');
     			  $('#Logo,#Indexer').hide();
@@ -54,7 +59,8 @@
     	  
     	  $("#AboutMsg").click(function(){
     		  $(this).poshytip('show');
-    	  }) 
+    	  });
+    	  
       });
       
     </script>
