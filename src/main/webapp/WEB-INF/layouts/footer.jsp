@@ -12,18 +12,24 @@
     <script type="text/javascript">
       $(document).ready(function () {
     	  
+    	  var isAnimated = false;
+    	  
     	  $(window).scroll(function () {
-    		  if($(this).scrollTop() > 55){
+    		  if($(this).scrollTop() > 280 && !isAnimated){
     			  $('#Logo').removeClass('logo-absolute');
-    			  $('#Logo').addClass('logo-fixed');
     			  $('#Indexer').removeClass('index-absolute');
+    			  $('#Logo,#Indexer').hide();
+    			  $('#Logo').addClass('logo-fixed');
     			  $('#Indexer').addClass('index-fixed');
+    			  $('#Logo,#Indexer').slideDown(900);
+    			  isAnimated = true;
     		  }
-    		  if($(this).scrollTop() == 0){
+    		  if($(this).scrollTop() == 0 && isAnimated){
     			  $('#Logo').removeClass('logo-fixed');
     			  $('#Logo').addClass('logo-absolute');
     			  $('#Indexer').removeClass('index-fixed');
     			  $('#Indexer').addClass('index-absolute');
+    			  isAnimated = false;
     		  }
     	  });
     	  

@@ -20,7 +20,9 @@ package com.abuabdul.knodex.controller;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * @author abuabdul
@@ -36,10 +38,18 @@ public class KxLandingController {
 	// Logger instance named "KxLandingController".
 	private static final Logger log = LogManager.getLogger(KxLandingController.class.getName());
 
-	@RequestMapping("/")
-	public String landingPage() {
+	@RequestMapping("/landingPage")
+	public void landingPage() {
 		log.debug("Entering landingPage() in the KxLandingController");
-		return "viewResults";
+		//return "landingPage";
+	}
+	
+	@RequestMapping("/indexInfo")
+	public ModelAndView indexInformation(Model model,String indexer) {
+		log.debug("Entering indexInformation() in the KxLandingController");
+		ModelAndView mav = new ModelAndView("viewResults");
+		mav.addObject("model", model);
+		return mav;
 	}
 
 }

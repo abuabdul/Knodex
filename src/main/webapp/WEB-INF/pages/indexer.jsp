@@ -1,3 +1,4 @@
+   <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
    <div id="Logo" class="logo-absolute">
        <div class="container">
           <span class="logoFont">K<span class="logoNoSize">NO</span><span class="logoDexColor">dex</span></span>
@@ -7,13 +8,15 @@
      <div class="container">
       <!-- Main Index Adder -->
       <div class="jumbotron">
+         <form:form name="indexForm" action="/Knodex/indexInfo" method="post">
+           <form:input path="indexBy" type="hidden"/>
 			<div class="input-group input-group-lg">
 				<span class="input-group-btn input-group-btn-lg">
-					<button class="btn btn-lg btn-primary" type="button">
+					<button class="btn btn-lg btn-primary" type="submit">
 					  <span class="glyphicon glyphicon-book"></span>
 					   Index it...!
 					</button>
-				</span> <input type="text" class="form-control" placeholder="Add Anything to Index">
+				</span> <form:input path="indexValue" type="text" class="form-control" placeholder="Add Anything to Index"/>
 			</div>
 			<!-- /input-group -->
 			<p width="100%" align="center">
@@ -44,6 +47,7 @@
 			   <span class="indexpad"><a class="badge" href="#">Y</a></span>
 			   <span class="indexpad"><a class="badge" href="#">Z</a></span>
            </p>
+          </form> 
       </div>
 
      </div> <!-- /container -->
