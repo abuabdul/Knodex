@@ -87,6 +87,10 @@ body {
   cursor: pointer;
 }
 
+.border-jump{
+  border: 1px #999999 solid;	
+}
+
 .cursor {
 	cursor: pointer;
 }

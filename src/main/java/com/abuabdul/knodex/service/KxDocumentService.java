@@ -15,36 +15,18 @@
  * 
  */
 
-package com.abuabdul.knodex.domain;
+package com.abuabdul.knodex.service;
 
-public class KnodexDoc {
+import java.util.List;
 
-	private String id;
-	private String indexSentence;
-	private String indexBy;
+public interface KxDocumentService<T> {
 
-	public String getId() {
-		return id;
-	}
+	public boolean indexASentence(String key, T t);
 
-	public void setId(String id) {
-		this.id = id;
-	}
+	public boolean removeASentence(String key);
 
-	public String getIndexSentence() {
-		return indexSentence;
-	}
+	public List<T> listSentencesByIndexer(String index);
 
-	public void setIndexSentence(String indexSentence) {
-		this.indexSentence = indexSentence;
-	}
-
-	public String getIndexBy() {
-		return indexBy;
-	}
-
-	public void setIndexBy(String indexBy) {
-		this.indexBy = indexBy;
-	}
+	public List<T> listAllSentences();
 
 }

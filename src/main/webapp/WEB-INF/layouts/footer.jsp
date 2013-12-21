@@ -21,6 +21,7 @@
     			  $('#Logo,#Indexer').hide();
     			  $('#Logo').addClass('logo-fixed');
     			  $('#Indexer').addClass('index-fixed');
+    			  $("div.jumbotron").addClass('border-jump');
     			  $('#Logo,#Indexer').slideDown(900);
     			  isAnimated = true;
     		  }
@@ -28,6 +29,7 @@
     			  $('#Logo').removeClass('logo-fixed');
     			  $('#Logo').addClass('logo-absolute');
     			  $('#Indexer').removeClass('index-fixed');
+    			  $("div.jumbotron").removeClass('border-jump');
     			  $('#Indexer').addClass('index-absolute');
     			  isAnimated = false;
     		  }

@@ -21,12 +21,14 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.abuabdul.knodex.domain.KnodexDoc;
 import com.abuabdul.knodex.model.KnodexForm;
+import com.abuabdul.knodex.service.KxDocumentService;
+import com.abuabdul.knodex.utils.KnodexUtil;
 
 /**
  * @author abuabdul
@@ -42,6 +44,13 @@ public class KxLandingController {
 	// Logger instance named "KxLandingController".
 	private static final Logger log = LogManager.getLogger(KxLandingController.class.getName());
 
+	// @Inject("kxDocumentService")
+	private KxDocumentService<KnodexDoc> kxDocumentService;
+
+	public void setKxDocumentService(KxDocumentService<KnodexDoc> kxDocumentService) {
+		this.kxDocumentService = kxDocumentService;
+	}
+
 	@RequestMapping("/")
 	public String landingPage(Model model) {
 		log.debug("Entering landingPage() in the KxLandingController");
@@ -53,19 +62,26 @@ public class KxLandingController {
 	@RequestMapping("/add/knodexSentenceToIndex")
 	public ModelAndView addIndexInformation(@ModelAttribute("knodexForm") KnodexForm knodex) {
 		log.debug("Entering addIndexInformation() in the KxLandingController");
-		log.debug("Printing knodex sentence... "+knodex.getIndexSentence());
-		knodex.setIndexSentence("");
+		KnodexDoc knodexDoc = null;
 		ModelAndView mav = new ModelAndView("landingPage");
-		mav.addObject("operation", "success");
+		if (knodex != null) {
+			log.debug("Printing knodex sentence... " + knodex.getIndexSentence());
+			knodexDoc = KnodexUtil.convertFormToDocObject(knodex);
+			if (knodexDoc != null) {
+				kxDocumentService.indexASentence(knodexDoc.getIndexBy(), knodexDoc);
+			}
+			knodex.setIndexSentence("");
+			mav.addObject("operation", "success");
+		}
 		return mav;
 	}
 
 	@RequestMapping("/list/knodexSentenceByIndex")
 	public ModelAndView listIndexInformation(@ModelAttribute("knodexForm") KnodexForm knodex) {
 		log.debug("Entering listIndexInformation() in the KxLandingController");
-		log.debug("Printing knodex sentence... "+knodex.getIndexSentence());
+		log.debug("Printing knodex sentence... " + knodex.getIndexSentence());
 		ModelAndView mav = new ModelAndView("viewResults");
-		//mav.addObject("knodexForm", new KnodexForm());
+		// mav.addObject("knodexForm", new KnodexForm());
 		return mav;
 	}
 }
