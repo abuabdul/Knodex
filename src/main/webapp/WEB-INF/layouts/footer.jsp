@@ -10,11 +10,6 @@
 	<script src="<c:url value="/resources/js/jquery.poshytip.js"/>"></script>
     
     <script type="text/javascript">
-      function listIndexBy(indexBy){
-    	  alert('indexBy = '+indexBy);
-    	  $("#indexBy").val(indexBy);
-      }
-    
       $(document).ready(function () {
     	  
     	  var isAnimated = false;
@@ -61,6 +56,35 @@
     		  $(this).poshytip('show');
     	  });
     	  
+    	  $("#KnodexLogo").click(function(){
+    		 window.location.href="/Knodex/"; 
+    	  });
+    	  
+    	  $("span.badge").mouseover(function(e){
+    		  if($("#indexBy").val() != e.target.id){
+    		   $("#"+e.target.id).addClass("click-badge");
+    	      }
+    	  });
+    	  
+    	  $("span.badge").mouseout(function(e){
+    		  if($("#indexBy").val() != e.target.id){
+    		   $("#"+e.target.id).removeClass("click-badge");
+    		  }
+    	  });
+    	  
+    	  $("span.badge").click(function(e){
+        	  $("#indexBy").val(e.target.id);
+        	  $("#knodexForm").attr("action","/Knodex/list/knodexSentenceByIndex");
+        	  $("#knodexForm").submit();
+    	  });
+    	  
+    	  //Display and fade out the success message
+    	  var successFlag = '<c:out value="${operation}"/>';
+    	  if(successFlag == 'success'){
+    		  $("div.success-absolute").removeClass("hidden");
+    		  $("div.success-absolute").fadeOut(1900);
+    	  }
+    	  
       });
-      
+            
     </script>

@@ -51,12 +51,21 @@ public class KxLandingController {
 	}
 
 	@RequestMapping("/add/knodexSentenceToIndex")
-	public ModelAndView indexInformation(@ModelAttribute("knodexForm") KnodexForm knodex) {
-		log.debug("Entering indexInformation() in the KxLandingController");
+	public ModelAndView addIndexInformation(@ModelAttribute("knodexForm") KnodexForm knodex) {
+		log.debug("Entering addIndexInformation() in the KxLandingController");
 		log.debug("Printing knodex sentence... "+knodex.getIndexSentence());
-		ModelAndView mav = new ModelAndView("viewResults");
-		mav.addObject("knodexForm", new KnodexForm());
+		knodex.setIndexSentence("");
+		ModelAndView mav = new ModelAndView("landingPage");
+		mav.addObject("operation", "success");
 		return mav;
 	}
 
+	@RequestMapping("/list/knodexSentenceByIndex")
+	public ModelAndView listIndexInformation(@ModelAttribute("knodexForm") KnodexForm knodex) {
+		log.debug("Entering listIndexInformation() in the KxLandingController");
+		log.debug("Printing knodex sentence... "+knodex.getIndexSentence());
+		ModelAndView mav = new ModelAndView("viewResults");
+		//mav.addObject("knodexForm", new KnodexForm());
+		return mav;
+	}
 }
