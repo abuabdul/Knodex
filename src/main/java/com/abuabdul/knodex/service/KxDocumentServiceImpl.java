@@ -24,11 +24,11 @@ import java.util.Map;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.abuabdul.knodex.domain.KnodexDoc;
 
-@Component
+@Service
 public class KxDocumentServiceImpl implements KxDocumentService<KnodexDoc> {
 
 	// Define a static logger variable so that it references the
@@ -51,7 +51,7 @@ public class KxDocumentServiceImpl implements KxDocumentService<KnodexDoc> {
 			} else {
 				listKnodexForKey = new ArrayList<KnodexDoc>();
 				listKnodexForKey.add(t);
-				mapKnodex.put(key, listKnodexForKey);
+				mapKnodex.put(key.toUpperCase(), listKnodexForKey);
 			}
 			return true;
 		}

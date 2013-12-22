@@ -55,7 +55,7 @@
 
      </div> <!-- /container -->
     </div>  <!-- /index-fixed -->
-    <c:if test="${operation eq 'success'}">
+    <c:if test="${operation}">
      <div id="SuccessMsgDiv" class="success-absolute hidden">
         <div class="container" align="center">
           <div class="alert alert-success success-transparency">

@@ -82,7 +82,7 @@
     	  
     	  //Display and fade out the success message
     	  var successFlag = '<c:out value="${operation}"/>';
-    	  if(successFlag == 'success'){
+    	  if(successFlag == true){
     		  $("div.success-absolute").removeClass("hidden");
     		  $("div.success-absolute").fadeOut(1900);
     	  }

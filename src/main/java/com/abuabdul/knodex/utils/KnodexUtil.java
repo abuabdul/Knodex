@@ -41,7 +41,7 @@ public class KnodexUtil {
 					knodexDoc.setIndexBy(knodexForm.getIndexBy());
 				} else {
 					String index = knodexDoc.getIndexSentence().split(" ")[0];
-					knodexDoc.setIndexBy(index);
+					knodexDoc.setIndexBy(String.valueOf(index.charAt(0)));
 				}
 			}
 
