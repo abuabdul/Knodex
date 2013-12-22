@@ -49,6 +49,7 @@
 			   <span class="indexpad"><span class="badge <c:if test="${knodexForm.indexBy eq 'X'}">click-badge</c:if>" id="X">X</span></span>
 			   <span class="indexpad"><span class="badge <c:if test="${knodexForm.indexBy eq 'Y'}">click-badge</c:if>" id="Y">Y</span></span>
 			   <span class="indexpad"><span class="badge <c:if test="${knodexForm.indexBy eq 'Z'}">click-badge</c:if>" id="Z">Z</span></span>
+			   <span class="padding25pxTop pull-right content-font"><span id="ViewAllEye" title="View All" class="glyphicon glyphicon-eye-open cursor"></span></span>
             </p>
           </form:form>  
       </div>
@@ -59,7 +60,7 @@
      <div id="SuccessMsgDiv" class="success-absolute hidden">
         <div class="container" align="center">
           <div class="alert alert-success success-transparency">
-             <p>New Element indexed!</p>
+             <p>New Sentence indexed!</p>
           </div>
         </div>    
      </div>

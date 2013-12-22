@@ -116,3 +116,12 @@ body {
 .fontSize12px {
 	font-size: 12px;
 }
+
+.padding25pxTop {
+	padding-top: 25px;
+}
+
+.click-eye {
+  color: #3276b1; 
+  cursor: pointer;
+}

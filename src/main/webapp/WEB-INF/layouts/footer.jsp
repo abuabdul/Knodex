@@ -80,9 +80,22 @@
         	  $("#knodexForm").submit();
     	  });
     	  
+    	  $("#ViewAllEye").mouseover(function(){
+    		   $(this).addClass("click-eye");
+    	  });
+    	  
+    	  $("#ViewAllEye").mouseout(function(){
+    		   $(this).removeClass("click-eye");
+    	  });
+    	  
+    	  $("#ViewAllEye").click(function(e){
+/*         	  $("#knodexForm").attr("action","/Knodex/list/knodexSentenceByIndex");
+        	  $("#knodexForm").submit();
+ */    	  });
+    	  
     	  //Display and fade out the success message
     	  var successFlag = '<c:out value="${operation}"/>';
-    	  if(successFlag == true){
+    	  if(successFlag == 'true'){
     		  $("div.success-absolute").removeClass("hidden");
     		  $("div.success-absolute").fadeOut(1900);
     	  }

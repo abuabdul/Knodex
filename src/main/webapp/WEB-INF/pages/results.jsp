@@ -8,7 +8,7 @@
       <table cellpadding="5" cellspacing="0" width="100%">
         <c:forEach var="resultRow" items="${indexByResults}">
           <tr>
-              <td width="3%"><span class="glyphicon glyphicon-remove-circle cursor"></span></td>
+              <td width="3%"><span class="glyphicon glyphicon-trash cursor" title="Remove"></span></td>
               <td width="24%"><span>${resultRow.indexBy}</span></td><td width="3%"> <span class="glyphicon glyphicon-chevron-right"></span></td>
               <td width="70%"><span>${resultRow.indexSentence}</span></td>
           </tr>
