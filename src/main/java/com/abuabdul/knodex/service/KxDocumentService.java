@@ -18,6 +18,7 @@
 package com.abuabdul.knodex.service;
 
 import java.util.List;
+import java.util.SortedMap;
 
 public interface KxDocumentService<T> {
 
@@ -27,6 +28,6 @@ public interface KxDocumentService<T> {
 
 	public List<T> listSentencesByIndexer(String index);
 
-	public List<T> listAllSentences();
+	public SortedMap<String, List<T>> listAllSentences();
 
 }

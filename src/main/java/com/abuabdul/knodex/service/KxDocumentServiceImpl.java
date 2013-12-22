@@ -18,9 +18,9 @@
 package com.abuabdul.knodex.service;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -35,7 +35,7 @@ public class KxDocumentServiceImpl implements KxDocumentService<KnodexDoc> {
 	// Logger instance named "KxDocumentServiceImpl".
 	private static final Logger log = LogManager.getLogger(KxDocumentServiceImpl.class.getName());
 
-	public static final Map<String, List<KnodexDoc>> mapKnodex = new HashMap<String, List<KnodexDoc>>();
+	public static final SortedMap<String, List<KnodexDoc>> mapKnodex = new TreeMap<String, List<KnodexDoc>>();
 
 	public boolean indexASentence(String key, KnodexDoc t) {
 		log.debug("Entered KxDocumentServiceImpl.indexASentence method");
@@ -79,9 +79,9 @@ public class KxDocumentServiceImpl implements KxDocumentService<KnodexDoc> {
 		return listByIndex;
 	}
 
-	public List<KnodexDoc> listAllSentences() {
-		// TODO Auto-generated method stub
-		return null;
+	public SortedMap<String, List<KnodexDoc>> listAllSentences() {
+		log.debug("Entered KxDocumentServiceImpl.listAllSentences method");
+		SortedMap<String, List<KnodexDoc>> fullListOfSentences = mapKnodex;
+		return fullListOfSentences;
 	}
-
 }

@@ -89,9 +89,10 @@
     	  });
     	  
     	  $("#ViewAllEye").click(function(e){
-/*         	  $("#knodexForm").attr("action","/Knodex/list/knodexSentenceByIndex");
+    		  $("#indexBy").val('All');
+         	  $("#knodexForm").attr("action","/list/all/knodexSentenceByIndex");
         	  $("#knodexForm").submit();
- */    	  });
+    	  });
     	  
     	  //Display and fade out the success message
     	  var successFlag = '<c:out value="${operation}"/>';
