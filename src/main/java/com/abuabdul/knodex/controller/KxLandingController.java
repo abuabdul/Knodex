@@ -70,6 +70,7 @@ public class KxLandingController {
 		String existingIndexBy = null;
 		KnodexDoc knodexDoc = null;
 		List<KnodexDoc> listKnodexDoc = null;
+		SortedMap<String, List<KnodexDoc>> fullListOfSentences = null;
 		ModelAndView mav = new ModelAndView("landingPage");
 		if (knodex != null) {
 			if (knodex.getIndexBy() != null && !knodex.getIndexBy().isEmpty()) {
@@ -87,8 +88,13 @@ public class KxLandingController {
 
 			// Gather the list of elements for the index already clicked
 			if (existingIndexBy != null && !existingIndexBy.isEmpty()) {
-				listKnodexDoc = kxDocumentService.listSentencesByIndexer(existingIndexBy.toUpperCase());
-				mav.addObject("indexByResults", listKnodexDoc);
+				if(!existingIndexBy.equalsIgnoreCase("All")) {
+				    listKnodexDoc = kxDocumentService.listSentencesByIndexer(existingIndexBy.toUpperCase());
+				    mav.addObject("indexByResults", listKnodexDoc);
+				}else {
+					fullListOfSentences = kxDocumentService.listAllSentences();
+				    mav.addObject("indexByResults", fullListOfSentences);
+				}
 				mav.setViewName("viewResults");
 				knodex.setIndexBy(existingIndexBy);
 			}

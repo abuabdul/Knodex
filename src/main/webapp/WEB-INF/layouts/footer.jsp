@@ -81,16 +81,20 @@
     	  });
     	  
     	  $("#ViewAllEye").mouseover(function(){
+    		  if($("#indexBy").val() != 'All'){
     		   $(this).addClass("click-eye");
+    		  }
     	  });
     	  
     	  $("#ViewAllEye").mouseout(function(){
+    		  if($("#indexBy").val() != 'All'){
     		   $(this).removeClass("click-eye");
+    		  } 
     	  });
     	  
-    	  $("#ViewAllEye").click(function(e){
+    	  $("#ViewAllEye").click(function(){
     		  $("#indexBy").val('All');
-         	  $("#knodexForm").attr("action","/list/all/knodexSentenceByIndex");
+         	  $("#knodexForm").attr("action","/Knodex/list/all/knodexSentenceByIndex");
         	  $("#knodexForm").submit();
     	  });
     	  
