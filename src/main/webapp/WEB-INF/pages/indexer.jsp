@@ -49,7 +49,9 @@
 			   <span class="indexpad"><span class="badge <c:if test="${knodexForm.indexBy eq 'X'}">click-badge</c:if>" id="X">X</span></span>
 			   <span class="indexpad"><span class="badge <c:if test="${knodexForm.indexBy eq 'Y'}">click-badge</c:if>" id="Y">Y</span></span>
 			   <span class="indexpad"><span class="badge <c:if test="${knodexForm.indexBy eq 'Z'}">click-badge</c:if>" id="Z">Z</span></span>
-			   <span class="pull-right padding25pxTop"><span id="ViewAllEye" title="View All" class="glyphicon glyphicon-eye-open content-font cursor <c:if test="${knodexForm.indexBy eq 'All'}">click-eye</c:if>"></span></span>
+			   <span class="pull-right padding25pxTop">
+			       <span id="ViewAllEye" title="View All" class="glyphicon glyphicon-eye-open content-font cursor <c:if test="${knodexForm.indexBy eq 'All'}">click-eye-selected</c:if>"></span>
+			   </span>
             </p>
           </form:form>  
       </div>

@@ -82,13 +82,13 @@
     	  
     	  $("#ViewAllEye").mouseover(function(){
     		  if($("#indexBy").val() != 'All'){
-    		   $(this).addClass("click-eye");
+    		   $(this).addClass("click-eye-selected");
     		  }
     	  });
     	  
     	  $("#ViewAllEye").mouseout(function(){
     		  if($("#indexBy").val() != 'All'){
-    		   $(this).removeClass("click-eye");
+    		   $(this).removeClass("click-eye-selected");
     		  } 
     	  });
     	  
