@@ -22,6 +22,7 @@ public class KnodexDoc {
 	private String id;
 	private String indexSentence;
 	private String indexBy;
+	private String key;
 
 	public String getId() {
 		return id;
@@ -45,6 +46,14 @@ public class KnodexDoc {
 
 	public void setIndexBy(String indexBy) {
 		this.indexBy = indexBy;
+	}
+
+	public String getKey() {
+		return key;
+	}
+
+	public void setKey(String key) {
+		this.key = key;
 	}
 
 }

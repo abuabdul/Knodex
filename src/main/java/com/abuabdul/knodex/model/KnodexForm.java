@@ -28,6 +28,7 @@ public class KnodexForm implements Serializable {
 	
 	private String indexSentence;
 	private String indexBy;
+	private String indexKey;
 
 	public String getIndexSentence() {
 		return indexSentence;
@@ -43,6 +44,14 @@ public class KnodexForm implements Serializable {
 
 	public void setIndexBy(String indexBy) {
 		this.indexBy = indexBy;
+	}
+
+	public String getIndexKey() {
+		return indexKey;
+	}
+
+	public void setIndexKey(String indexKey) {
+		this.indexKey = indexKey;
 	}
 
 }
