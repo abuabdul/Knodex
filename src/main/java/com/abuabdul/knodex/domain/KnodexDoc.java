@@ -17,12 +17,26 @@
 
 package com.abuabdul.knodex.domain;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.CompoundIndex;
+import org.springframework.data.mongodb.core.index.CompoundIndexes;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
+@CompoundIndexes({ @CompoundIndex(name = "indexBy_sentences", def = "{'key': 1, 'indexBy': 1}") })
 public class KnodexDoc {
 
+	@Id
 	private String id;
-	private String indexSentence;
-	private String indexBy;
+
+	@Indexed(unique = true)
 	private String key;
+
+	@Indexed
+	private String indexBy;
+
+	private String indexSentence;
 
 	public String getId() {
 		return id;
@@ -54,6 +68,11 @@ public class KnodexDoc {
 
 	public void setKey(String key) {
 		this.key = key;
+	}
+
+	@Override
+	public String toString() {
+		return "KnodexDocument [id=" + id + ", key=" + key + ", indexBy=" + indexBy + ", indexSentence = " + indexSentence + "]";
 	}
 
 }

@@ -22,11 +22,11 @@ import java.util.SortedMap;
 
 public interface KxDocumentService<T> {
 
-	public boolean indexASentence(String key, T t);
+	public boolean indexASentence(T entity);
 
-	public boolean removeASentence(String key);
+	public boolean removeASentence(String id);
 
-	public List<T> listSentencesByIndexer(String index);
+	public List<T> listSentencesByIndexer(String key);
 
 	public SortedMap<String, List<T>> listAllSentences();
 

@@ -24,10 +24,15 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
-	<!-- <listener> <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class> 
-		</listener> <context-param> <param-name>contextConfigLocation</param-name> 
-		<param-value> /WEB-INF/spring/jdbc/spring-jdbc.xml /WEB-INF/spring/security/spring-security-context.xml 
-		</param-value> </context-param> -->
+	<listener>
+	   <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+	
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/spring/spring-mongo.xml</param-value>
+	</context-param> 
+		
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>

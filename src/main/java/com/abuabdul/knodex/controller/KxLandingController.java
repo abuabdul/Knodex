@@ -82,7 +82,7 @@ public class KxLandingController {
 			log.debug("Printing knodex sentence... " + knodex.getIndexSentence());
 			knodexDoc = KnodexUtil.convertFormToDocObject(knodex);
 			if (knodexDoc != null) {
-				boolean success = kxDocumentService.indexASentence(knodexDoc.getIndexBy(), knodexDoc);
+				boolean success = kxDocumentService.indexASentence(knodexDoc);
 				mav.addObject("operation", success);
 			}
 
