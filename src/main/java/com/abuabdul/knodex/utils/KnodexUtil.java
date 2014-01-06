@@ -32,16 +32,20 @@ public class KnodexUtil {
 
 	public static KnodexDoc convertFormToDocObject(KnodexForm knodexForm) {
 		log.debug("Entered KnodexUtil.convertFormToDocObject method");
+		String sentenceKey = "";
 		KnodexDoc knodexDoc = null;
 		if (knodexForm != null) {
 			knodexDoc = new KnodexDoc();
-			if (knodexForm.getIndexSentence() != null && !knodexForm.getIndexSentence().isEmpty()) {
-				knodexDoc.setIndexSentence(knodexForm.getIndexSentence());
-				if (knodexForm.getIndexBy() != null && !knodexForm.getIndexBy().isEmpty()) {
-					knodexDoc.setIndexBy(knodexForm.getIndexBy());
+			if (!StringUtils.isEmpty(knodexForm.getIndexSentence())) {
+				knodexDoc.setIndexSentence(knodexForm.getIndexSentence().trim());
+				char indexKey = knodexDoc.getIndexSentence().charAt(0);
+				sentenceKey = String.valueOf(indexKey).toUpperCase();
+				knodexDoc.setKey(sentenceKey);
+				String[] index = knodexDoc.getIndexSentence().split("-");
+				if (index.length > 1) {
+					knodexDoc.setIndexBy(index[0].trim());
 				} else {
-					String index = knodexDoc.getIndexSentence().split(" ")[0];
-					knodexDoc.setIndexBy(String.valueOf(index.charAt(0)));
+					knodexDoc.setIndexBy(sentenceKey);
 				}
 			}
 

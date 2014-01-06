@@ -67,18 +67,18 @@ public class KxLandingController {
 	@RequestMapping("/add/knodexSentenceToIndex")
 	public ModelAndView addIndexInformation(@ModelAttribute("knodexForm") KnodexForm knodex) {
 		log.debug("Entering addIndexInformation() in the KxLandingController");
-		String existingIndexBy = null;
+		String existingIndexKey = null;
 		KnodexDoc knodexDoc = null;
 		List<KnodexDoc> listKnodexDoc = null;
 		SortedMap<String, List<KnodexDoc>> fullListOfSentences = null;
 		ModelAndView mav = new ModelAndView("landingPage");
 		if (knodex != null) {
-			if (knodex.getIndexBy() != null && !knodex.getIndexBy().isEmpty()) {
+			if (knodex.getIndexKey() != null && !knodex.getIndexKey().isEmpty()) {
 				// Gather if the index is already clicked
-				existingIndexBy = knodex.getIndexBy();
+				existingIndexKey = knodex.getIndexKey();
 			}
 			// reset the index since new addition does not require indexBy value
-			knodex.setIndexBy("");
+			knodex.setIndexKey("");
 			log.debug("Printing knodex sentence... " + knodex.getIndexSentence());
 			knodexDoc = KnodexUtil.convertFormToDocObject(knodex);
 			if (knodexDoc != null) {
@@ -87,16 +87,17 @@ public class KxLandingController {
 			}
 
 			// Gather the list of elements for the index already clicked
-			if (existingIndexBy != null && !existingIndexBy.isEmpty()) {
-				if(!existingIndexBy.equalsIgnoreCase("All")) {
-				    listKnodexDoc = kxDocumentService.listSentencesByIndexer(existingIndexBy.toUpperCase());
+			if (existingIndexKey != null && !existingIndexKey.isEmpty()) {
+				if(!existingIndexKey.equalsIgnoreCase("All")) {
+					log.debug("Printing knodex key... " + existingIndexKey.toUpperCase());
+				    listKnodexDoc = kxDocumentService.listSentencesByIndexer(existingIndexKey.toUpperCase());
 				    mav.addObject("indexByResults", listKnodexDoc);
 				}else {
 					fullListOfSentences = kxDocumentService.listAllSentences();
 				    mav.addObject("indexByResults", fullListOfSentences);
 				}
 				mav.setViewName("viewResults");
-				knodex.setIndexBy(existingIndexBy);
+				knodex.setIndexKey(existingIndexKey);
 			}
 			// Reset the sentence since value should be reset after addition
 			knodex.setIndexSentence("");

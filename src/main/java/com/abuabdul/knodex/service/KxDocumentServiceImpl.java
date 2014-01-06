@@ -28,7 +28,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-import com.abuabdul.knodex.dao.KnodexDAO;
+import com.abuabdul.knodex.dao.KxDocumentDAO;
 import com.abuabdul.knodex.domain.KnodexDoc;
 
 @Service
@@ -39,7 +39,7 @@ public class KxDocumentServiceImpl implements KxDocumentService<KnodexDoc> {
 	private static final Logger log = LogManager.getLogger(KxDocumentServiceImpl.class.getName());
 
 	@Autowired
-	private KnodexDAO<KnodexDoc> knodexDAO;
+	private KxDocumentDAO<KnodexDoc> knodexDAO;
 
 	public static final SortedMap<String, List<KnodexDoc>> mapKnodex = new TreeMap<String, List<KnodexDoc>>();
 

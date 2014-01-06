@@ -2,7 +2,7 @@ package com.abuabdul.knodex.dao;
 
 import java.util.List;
 
-public interface KnodexDAO<T> {
+public interface KxDocumentDAO<T> {
 
 	public T save(T entity);
 	
