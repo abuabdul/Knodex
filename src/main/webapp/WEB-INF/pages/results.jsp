@@ -11,7 +11,7 @@
         	    <c:forEach var="docObject" items="${resultRow.value}" varStatus="valueStatus">
         	       <table cellpadding="5" cellspacing="0" width="100%">
             		 <tr>
-             		   <td width="3%"><span id="${resultRow.key}_${status.count}_${valueStatus.count}" class="glyphicon glyphicon-trash cursor" title="Remove"></span></td>
+             		   <td width="3%"><span id="${resultRow.key}_${status.count}_${valueStatus.count}_${docObject.id}" class="glyphicon glyphicon-trash cursor" title="Remove"></span></td>
              		   <td width="24%"><span>${docObject.indexBy}</span></td><td width="3%"> <span class="glyphicon glyphicon-chevron-right"></span></td>
             		   <td width="70%"><span>${docObject.indexSentence}</span></td>
              		 </tr>
@@ -24,7 +24,7 @@
             <table cellpadding="5" cellspacing="0" width="100%">
       		  <c:forEach var="resultRow" items="${indexByResults}" varStatus="status">
           		<tr>
-              		<td width="3%"><span id="Index_${status.count}" class="glyphicon glyphicon-trash cursor" title="Remove"></span></td>
+              		<td width="3%"><span id="Index_${status.count}_${resultRow.id}" class="glyphicon glyphicon-trash cursor" title="Remove"></span></td>
               		<td width="24%"><span>${resultRow.indexBy}</span></td><td width="3%"> <span class="glyphicon glyphicon-chevron-right"></span></td>
               		<td width="70%"><span>${resultRow.indexSentence}</span></td>
           		</tr>
