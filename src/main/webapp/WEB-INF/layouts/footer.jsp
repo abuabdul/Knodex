@@ -63,37 +63,37 @@
     	  });
     	  
     	  $("span.badge").mouseover(function(e){
-    		  if($("#indexBy").val() != e.target.id){
+    		  if($("#indexKey").val() != e.target.id){
     		   $("#"+e.target.id).addClass("click-badge");
     	      }
     	  });
     	  
     	  $("span.badge").mouseout(function(e){
-    		  if($("#indexBy").val() != e.target.id){
+    		  if($("#indexKey").val() != e.target.id){
     		   $("#"+e.target.id).removeClass("click-badge");
     		  }
     	  });
     	  
     	  $("span.badge").click(function(e){
-        	  $("#indexBy").val(e.target.id);
+        	  $("#indexKey").val(e.target.id);
         	  $("#knodexForm").attr("action","/Knodex/list/knodexSentenceByIndex");
         	  $("#knodexForm").submit();
     	  });
     	  
     	  $("#ViewAllEye").mouseover(function(){
-    		  if($("#indexBy").val() != 'All'){
+    		  if($("#indexKey").val() != 'All'){
     		   $(this).addClass("click-eye-selected");
     		  }
     	  });
     	  
     	  $("#ViewAllEye").mouseout(function(){
-    		  if($("#indexBy").val() != 'All'){
+    		  if($("#indexKey").val() != 'All'){
     		   $(this).removeClass("click-eye-selected");
     		  } 
     	  });
     	  
     	  $("#ViewAllEye").click(function(){
-    		  $("#indexBy").val('All');
+    		  $("#indexKey").val('All');
          	  $("#knodexForm").attr("action","/Knodex/list/all/knodexSentenceByIndex");
         	  $("#knodexForm").submit();
     	  });

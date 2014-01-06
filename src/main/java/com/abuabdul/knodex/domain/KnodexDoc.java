@@ -30,7 +30,7 @@ public class KnodexDoc {
 	@Id
 	private String id;
 
-	@Indexed(unique = true)
+	@Indexed
 	private String key;
 
 	@Indexed

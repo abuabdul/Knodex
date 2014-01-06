@@ -5,7 +5,7 @@
    <c:choose>
      <c:when test="${indexByResults!=null}">
       <c:choose>
-    	 <c:when test="${knodexForm.indexBy eq 'All'}">
+    	 <c:when test="${knodexForm.indexKey eq 'All'}">
         	 <c:forEach var="resultRow" items="${indexByResults}" varStatus="status">
         	    <span class="indexpad"><span class="badge click-badge">${resultRow.key}</span></span><br/><br/>
         	    <c:forEach var="docObject" items="${resultRow.value}" varStatus="valueStatus">

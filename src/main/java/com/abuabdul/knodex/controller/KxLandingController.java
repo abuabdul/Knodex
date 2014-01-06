@@ -111,9 +111,9 @@ public class KxLandingController {
 		List<KnodexDoc> listKnodexDoc = null;
 		ModelAndView mav = new ModelAndView("viewResults");
 		if (knodex != null) {
-			log.debug("Printing knodex index... " + knodex.getIndexBy());
-			if (knodex.getIndexBy() != null && !knodex.getIndexBy().isEmpty()) {
-				listKnodexDoc = kxDocumentService.listSentencesByIndexer(knodex.getIndexBy().toUpperCase());
+			log.debug("Printing knodex index key... " + knodex.getIndexKey());
+			if (knodex.getIndexKey() != null && !knodex.getIndexKey().isEmpty()) {
+				listKnodexDoc = kxDocumentService.listSentencesByIndexer(knodex.getIndexKey().toUpperCase());
 			}
 			mav.addObject("indexByResults", listKnodexDoc);
 			// Reset the sentence since value should be reset after listing by Index
@@ -128,7 +128,7 @@ public class KxLandingController {
 		SortedMap<String, List<KnodexDoc>> fullListOfSentences = new TreeMap<String, List<KnodexDoc>>();
 		ModelAndView mav = new ModelAndView("viewResults");
 		if (knodex != null) {
-			log.debug("Printing knodex index... " + knodex.getIndexBy());
+			log.debug("Printing knodex index key... " + knodex.getIndexKey());
 			fullListOfSentences = kxDocumentService.listAllSentences();
 		}
 		mav.addObject("indexByResults", fullListOfSentences);
