@@ -3,7 +3,8 @@
  <div class="container">
    <div class="content-place">
    <c:choose>
-     <c:when test="${indexByResults!=null}">
+     <c:when test="${indexByResults!=null && !indexByResults.isEmpty()}">
+       <div class="text-center">Total Records : ${indexByResults.size()}</br></div>
       <c:choose>
     	 <c:when test="${knodexForm.indexKey eq 'All'}">
         	 <c:forEach var="resultRow" items="${indexByResults}" varStatus="status">

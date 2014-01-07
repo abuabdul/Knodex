@@ -26,10 +26,12 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.abuabdul.knodex.dao.KxDocumentDAO;
 import com.abuabdul.knodex.domain.KnodexDoc;
 import com.abuabdul.knodex.model.KnodexForm;
 import com.abuabdul.knodex.service.KxDocumentService;
@@ -104,6 +106,16 @@ public class KxLandingController {
 		}
 		return mav;
 	}
+	
+	@RequestMapping("/remove/knodexSentenceToIndex")
+	public ModelAndView removeIndexInformation(@ModelAttribute("knodexForm") KnodexForm knodex, String knodexId) {
+		log.debug("Entering removeIndexInformation() in the KxLandingController");
+		ModelAndView mav = new ModelAndView("viewResults");
+		if(!StringUtils.isEmpty(knodexId)) {
+		 kxDocumentService.removeASentence(knodexId);
+		}
+		return mav;
+	}
 
 	@RequestMapping("/list/knodexSentenceByIndex")
 	public ModelAndView listIndexInformation(@ModelAttribute("knodexForm") KnodexForm knodex) {
@@ -125,13 +137,16 @@ public class KxLandingController {
 	@RequestMapping("/list/all/knodexSentenceByIndex")
 	public ModelAndView listAllIndexInformation(@ModelAttribute("knodexForm") KnodexForm knodex) {
 		log.debug("Entering listAllIndexInformation() in the KxLandingController");
+		long totalSize = 0;
 		SortedMap<String, List<KnodexDoc>> fullListOfSentences = new TreeMap<String, List<KnodexDoc>>();
 		ModelAndView mav = new ModelAndView("viewResults");
 		if (knodex != null) {
 			log.debug("Printing knodex index key... " + knodex.getIndexKey());
 			fullListOfSentences = kxDocumentService.listAllSentences();
+			totalSize = kxDocumentService.getTotalRecordsSize();
 		}
 		mav.addObject("indexByResults", fullListOfSentences);
+		mav.addObject("totalRecords", totalSize);
 		// Reset the sentence since value should be reset after listing by Index
 		knodex.setIndexSentence("");
 		return mav;

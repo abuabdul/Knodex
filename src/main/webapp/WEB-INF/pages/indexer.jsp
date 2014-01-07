@@ -19,7 +19,7 @@
 					  <span class="glyphicon glyphicon-book"></span>
 					   Index it...!
 					</button>
-				</span> <form:input path="indexSentence" type="text" class="form-control" placeholder="Add Anything to Index" required="true"/>
+				</span> <form:input path="indexSentence" type="text" class="form-control" placeholder="Add your knowledge in {Key - Sentence}. Ex: INR - Indian Rupee" required="true"/>
 			 </div>
 			 <!-- /input-group -->
 			 <p width="100%" align="center">

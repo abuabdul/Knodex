@@ -101,4 +101,9 @@ public class KxDocumentServiceImpl implements KxDocumentService<KnodexDoc> {
 		return fullListOfSentences;
 	}
 
+	public Long getTotalRecordsSize() {
+		Long totalCount = knodexDAO.count();
+		return totalCount;
+	}
+
 }

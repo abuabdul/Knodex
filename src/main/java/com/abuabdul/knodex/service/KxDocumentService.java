@@ -29,5 +29,7 @@ public interface KxDocumentService<T> {
 	public List<T> listSentencesByIndexer(String key);
 
 	public SortedMap<String, List<T>> listAllSentences();
+	
+	public Long getTotalRecordsSize();
 
 }
