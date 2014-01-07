@@ -110,9 +110,17 @@ public class KxLandingController {
 	@RequestMapping("/remove/knodexSentenceToIndex")
 	public ModelAndView removeIndexInformation(@ModelAttribute("knodexForm") KnodexForm knodex, String knodexId) {
 		log.debug("Entering removeIndexInformation() in the KxLandingController");
+		String parsedId = "";
+		boolean deleted = false;
 		ModelAndView mav = new ModelAndView("viewResults");
 		if(!StringUtils.isEmpty(knodexId)) {
-		 kxDocumentService.removeASentence(knodexId);
+			String[] idArray = knodexId.split("_");
+			if(idArray!=null && idArray.length!=0) {
+				parsedId = idArray[idArray.length-1];
+				log.debug("Id of the record to be deleted - "+ parsedId);
+				deleted = kxDocumentService.removeASentence(parsedId);
+			}
+		 
 		}
 		return mav;
 	}

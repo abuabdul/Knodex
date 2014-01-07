@@ -105,6 +105,13 @@
     		  $("div.success-absolute").fadeOut(1900);
     	  }
     	  
+    	  $("span.glyphicon-trash").click(function(){
+    		  $.post("/Knodex/remove/knodexSentenceToIndex",  { knodexId : this.id }, function(data) {
+    			  if(data.deleted){
+    				  alert('deleted successfully');
+    			  }
+    		  });
+    	  });
       });
             
     </script>
