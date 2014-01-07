@@ -126,6 +126,9 @@ public class KxLandingController {
 			log.debug("Printing knodex index key... " + knodex.getIndexKey());
 			if (knodex.getIndexKey() != null && !knodex.getIndexKey().isEmpty()) {
 				listKnodexDoc = kxDocumentService.listSentencesByIndexer(knodex.getIndexKey().toUpperCase());
+				if(listKnodexDoc!=null) {
+					mav.addObject("totalRecords", listKnodexDoc.size());
+				}
 			}
 			mav.addObject("indexByResults", listKnodexDoc);
 			// Reset the sentence since value should be reset after listing by Index
