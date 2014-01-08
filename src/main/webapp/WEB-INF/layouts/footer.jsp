@@ -102,13 +102,21 @@
     	  var successFlag = '<c:out value="${operation}"/>';
     	  if(successFlag == 'true'){
     		  $("div.success-absolute").removeClass("hidden");
-    		  $("div.success-absolute").fadeOut(1900);
+    		  $("div.success-absolute").fadeOut(2500);
     	  }
     	  
     	  $("span.glyphicon-trash").click(function(){
+    		  var idTrash = this.id;
     		  $.post("/Knodex/remove/knodexSentenceToIndex",  { knodexId : this.id }, function(data) {
-    			  if(data.deleted){
-    				  alert('deleted successfully');
+    			  if(data){
+    				  $("#Tr_"+idTrash).fadeOut(1000);
+    				  var countIndex = parseInt($("#totalIndex").html().trim());
+    				  countIndex = countIndex -1;
+    				  if(countIndex > 0){
+    					  $("#totalIndex").html(countIndex);
+    				  }else{
+    					  $("#ResultPane").html('<table cellpadding="5" cellspacing="0" width="100%"><tr><td width="100%" align="center">You don\'t have anything indexed yet!!!</td></tr></table>');
+    				  }
     			  }
     		  });
     	  });

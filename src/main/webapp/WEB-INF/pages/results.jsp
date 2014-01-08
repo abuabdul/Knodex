@@ -1,17 +1,17 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="content-absolute">
  <div class="container">
-   <div class="content-place">
+   <div id="ResultPane" class="content-place">
    <c:choose>
      <c:when test="${indexByResults!=null && !indexByResults.isEmpty()}">
-       <div class="text-center">Total Records : ${totalRecords}</br></div>
+       <div class="text-center">Total Indexes : <span id="totalIndex">${totalIndexes}</span></br></div>
       <c:choose>
     	 <c:when test="${knodexForm.indexKey eq 'All'}">
         	 <c:forEach var="resultRow" items="${indexByResults}" varStatus="status">
         	    <span class="indexpad"><span class="badge click-badge">${resultRow.key}</span></span><br/><br/>
         	    <c:forEach var="docObject" items="${resultRow.value}" varStatus="valueStatus">
         	       <table cellpadding="5" cellspacing="0" width="100%">
-            		 <tr>
+            		 <tr id="Tr_${resultRow.key}_${status.count}_${valueStatus.count}_${docObject.id}">
              		   <td width="3%"><span id="${resultRow.key}_${status.count}_${valueStatus.count}_${docObject.id}" class="glyphicon glyphicon-trash cursor" title="Remove"></span></td>
              		   <td width="24%"><span>${docObject.indexBy}</span></td><td width="3%"> <span class="glyphicon glyphicon-chevron-right"></span></td>
             		   <td width="70%"><span>${docObject.indexSentence}</span></td>
@@ -24,7 +24,7 @@
          <c:otherwise>
             <table cellpadding="5" cellspacing="0" width="100%">
       		  <c:forEach var="resultRow" items="${indexByResults}" varStatus="status">
-          		<tr>
+          		<tr id="Tr_Index_${status.count}_${resultRow.id}">
               		<td width="3%"><span id="Index_${status.count}_${resultRow.id}" class="glyphicon glyphicon-trash cursor" title="Remove"></span></td>
               		<td width="24%"><span>${resultRow.indexBy}</span></td><td width="3%"> <span class="glyphicon glyphicon-chevron-right"></span></td>
               		<td width="70%"><span>${resultRow.indexSentence}</span></td>

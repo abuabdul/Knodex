@@ -29,9 +29,9 @@ import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.abuabdul.knodex.dao.KxDocumentDAO;
 import com.abuabdul.knodex.domain.KnodexDoc;
 import com.abuabdul.knodex.model.KnodexForm;
 import com.abuabdul.knodex.service.KxDocumentService;
@@ -69,6 +69,7 @@ public class KxLandingController {
 	@RequestMapping("/add/knodexSentenceToIndex")
 	public ModelAndView addIndexInformation(@ModelAttribute("knodexForm") KnodexForm knodex) {
 		log.debug("Entering addIndexInformation() in the KxLandingController");
+		long totalSize = 0;
 		String existingIndexKey = null;
 		KnodexDoc knodexDoc = null;
 		List<KnodexDoc> listKnodexDoc = null;
@@ -90,13 +91,18 @@ public class KxLandingController {
 
 			// Gather the list of elements for the index already clicked
 			if (existingIndexKey != null && !existingIndexKey.isEmpty()) {
-				if(!existingIndexKey.equalsIgnoreCase("All")) {
+				if (!existingIndexKey.equalsIgnoreCase("All")) {
 					log.debug("Printing knodex key... " + existingIndexKey.toUpperCase());
-				    listKnodexDoc = kxDocumentService.listSentencesByIndexer(existingIndexKey.toUpperCase());
-				    mav.addObject("indexByResults", listKnodexDoc);
-				}else {
+					listKnodexDoc = kxDocumentService.listSentencesByIndexer(existingIndexKey.toUpperCase());
+					mav.addObject("indexByResults", listKnodexDoc);
+					if (listKnodexDoc != null) {
+						mav.addObject("totalIndexes", listKnodexDoc.size());
+					}
+				} else {
 					fullListOfSentences = kxDocumentService.listAllSentences();
-				    mav.addObject("indexByResults", fullListOfSentences);
+					totalSize = kxDocumentService.getTotalRecordsSize();
+					mav.addObject("indexByResults", fullListOfSentences);
+					mav.addObject("totalIndexes", totalSize);
 				}
 				mav.setViewName("viewResults");
 				knodex.setIndexKey(existingIndexKey);
@@ -106,23 +112,23 @@ public class KxLandingController {
 		}
 		return mav;
 	}
-	
+
 	@RequestMapping("/remove/knodexSentenceToIndex")
-	public ModelAndView removeIndexInformation(@ModelAttribute("knodexForm") KnodexForm knodex, String knodexId) {
+	@ResponseBody
+	public String removeIndexInformation(@ModelAttribute("knodexForm") KnodexForm knodex, String knodexId) {
 		log.debug("Entering removeIndexInformation() in the KxLandingController");
 		String parsedId = "";
 		boolean deleted = false;
-		ModelAndView mav = new ModelAndView("viewResults");
-		if(!StringUtils.isEmpty(knodexId)) {
+		if (!StringUtils.isEmpty(knodexId)) {
 			String[] idArray = knodexId.split("_");
-			if(idArray!=null && idArray.length!=0) {
-				parsedId = idArray[idArray.length-1];
-				log.debug("Id of the record to be deleted - "+ parsedId);
+			if (idArray != null && idArray.length != 0) {
+				parsedId = idArray[idArray.length - 1];
+				log.debug("Id of the record to be deleted - " + parsedId);
 				deleted = kxDocumentService.removeASentence(parsedId);
 			}
-		 
+
 		}
-		return mav;
+		return String.valueOf(deleted);
 	}
 
 	@RequestMapping("/list/knodexSentenceByIndex")
@@ -134,12 +140,13 @@ public class KxLandingController {
 			log.debug("Printing knodex index key... " + knodex.getIndexKey());
 			if (knodex.getIndexKey() != null && !knodex.getIndexKey().isEmpty()) {
 				listKnodexDoc = kxDocumentService.listSentencesByIndexer(knodex.getIndexKey().toUpperCase());
-				if(listKnodexDoc!=null) {
-					mav.addObject("totalRecords", listKnodexDoc.size());
+				if (listKnodexDoc != null) {
+					mav.addObject("totalIndexes", listKnodexDoc.size());
 				}
 			}
 			mav.addObject("indexByResults", listKnodexDoc);
-			// Reset the sentence since value should be reset after listing by Index
+			// Reset the sentence since value should be reset after listing by
+			// Index
 			knodex.setIndexSentence("");
 		}
 		return mav;
@@ -157,7 +164,7 @@ public class KxLandingController {
 			totalSize = kxDocumentService.getTotalRecordsSize();
 		}
 		mav.addObject("indexByResults", fullListOfSentences);
-		mav.addObject("totalRecords", totalSize);
+		mav.addObject("totalIndexes", totalSize);
 		// Reset the sentence since value should be reset after listing by Index
 		knodex.setIndexSentence("");
 		return mav;
