@@ -15,6 +15,6 @@
 	It enables your knowledge perfectly saved and indexed out for you. 
 	It sorts the knowledge with keys and displays by the key order.
 	This indexer tool will allow you to remove your entries or learnings you indexed. 
-	Its very easy and user-friendly tool to list your knowledge displayed out whenever you like no matter wherever you are.
+	Its very easy and user-friendly tool to list your knowledge displayed out whenever you like no matter wherever you are!
 </div>
 </div>
