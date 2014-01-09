@@ -19,6 +19,10 @@ package com.abuabdul.knodex.model;
 
 import java.io.Serializable;
 
+/**
+ * @author abuabdul
+ *
+ */
 public class KnodexForm implements Serializable {
 
 	/**

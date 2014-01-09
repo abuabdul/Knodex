@@ -120,6 +120,7 @@ public class KxLandingController {
 		String parsedId = "";
 		boolean deleted = false;
 		if (!StringUtils.isEmpty(knodexId)) {
+			log.debug("Parse the knodex Id in the KxLandingController "+ knodexId);
 			String[] idArray = knodexId.split("_");
 			if (idArray != null && idArray.length != 0) {
 				parsedId = idArray[idArray.length - 1];
@@ -145,8 +146,7 @@ public class KxLandingController {
 				}
 			}
 			mav.addObject("indexByResults", listKnodexDoc);
-			// Reset the sentence since value should be reset after listing by
-			// Index
+			// Reset the sentence since value should be reset after listing by Index
 			knodex.setIndexSentence("");
 		}
 		return mav;

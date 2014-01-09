@@ -31,6 +31,10 @@ import org.springframework.util.StringUtils;
 import com.abuabdul.knodex.dao.KxDocumentDAO;
 import com.abuabdul.knodex.domain.KnodexDoc;
 
+/**
+ * @author abuabdul
+ *
+ */
 @Service
 public class KxDocumentServiceImpl implements KxDocumentService<KnodexDoc> {
 

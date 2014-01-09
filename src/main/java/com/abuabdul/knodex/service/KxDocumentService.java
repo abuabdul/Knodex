@@ -20,6 +20,11 @@ package com.abuabdul.knodex.service;
 import java.util.List;
 import java.util.SortedMap;
 
+/**
+ * @author abuabdul
+ *
+ * @param <T>
+ */
 public interface KxDocumentService<T> {
 
 	public boolean indexASentence(T entity);

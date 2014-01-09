@@ -23,6 +23,10 @@ import org.springframework.data.mongodb.core.index.CompoundIndexes;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+/**
+ * @author abuabdul
+ *
+ */
 @Document(collection="knodexdoc")
 @CompoundIndexes({ @CompoundIndex(name = "indexBy_sentences", def = "{'key': 1, 'indexBy': 1}") })
 public class KnodexDoc {

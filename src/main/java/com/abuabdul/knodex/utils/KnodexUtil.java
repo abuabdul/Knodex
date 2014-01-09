@@ -24,6 +24,10 @@ import org.springframework.util.StringUtils;
 import com.abuabdul.knodex.domain.KnodexDoc;
 import com.abuabdul.knodex.model.KnodexForm;
 
+/**
+ * @author abuabdul
+ *
+ */
 public class KnodexUtil {
 
 	// Define a static logger variable so that it references the

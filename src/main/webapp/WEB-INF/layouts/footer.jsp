@@ -102,14 +102,14 @@
     	  var successFlag = '<c:out value="${operation}"/>';
     	  if(successFlag == 'true'){
     		  $("div.success-absolute").removeClass("hidden");
-    		  $("div.success-absolute").fadeOut(2500);
+    		  $("div.success-absolute").fadeOut(3000);
     	  }
     	  
     	  $("span.glyphicon-trash").click(function(){
     		  var idTrash = this.id;
     		  $.post("/Knodex/remove/knodexSentenceToIndex",  { knodexId : this.id }, function(data) {
     			  if(data){
-    				  $("#Tr_"+idTrash).fadeOut(1000);
+    				  $("#Tr_"+idTrash).fadeOut(750);
     				  var countIndex = parseInt($("#totalIndex").html().trim());
     				  countIndex = countIndex -1;
     				  if(countIndex > 0){
