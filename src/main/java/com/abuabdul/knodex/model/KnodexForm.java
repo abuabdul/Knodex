@@ -21,15 +21,18 @@ import java.io.Serializable;
 
 /**
  * @author abuabdul
- *
+ * 
+ *         Form object to transfer the data back and forth between MongoDB and
+ *         the UI page
+ * 
  */
 public class KnodexForm implements Serializable {
 
 	/**
-	 * 
+	 * Default SerialVersionUID
 	 */
 	private static final long serialVersionUID = 13234234L;
-	
+
 	private String indexSentence;
 	private String indexBy;
 	private String indexKey;

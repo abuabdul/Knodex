@@ -26,7 +26,10 @@ import com.abuabdul.knodex.model.KnodexForm;
 
 /**
  * @author abuabdul
- *
+ * 
+ *         This is a util class to perform various operations related to Knodex
+ *         application.
+ * 
  */
 public class KnodexUtil {
 
@@ -41,12 +44,14 @@ public class KnodexUtil {
 		if (knodexForm != null) {
 			knodexDoc = new KnodexDoc();
 			if (!StringUtils.isEmpty(knodexForm.getIndexSentence())) {
+				log.debug("Knodex Sentence entered by the user "+ knodexForm.getIndexSentence());
 				knodexDoc.setIndexSentence(knodexForm.getIndexSentence().trim());
 				char indexKey = knodexDoc.getIndexSentence().charAt(0);
 				sentenceKey = String.valueOf(indexKey).toUpperCase();
 				knodexDoc.setKey(sentenceKey);
 				String[] index = knodexDoc.getIndexSentence().split("-");
 				if (index.length > 1) {
+					log.debug("Knodex Sentence actual indexBy value "+ index[0]);
 					knodexDoc.setIndexBy(index[0].trim());
 				} else {
 					knodexDoc.setIndexBy(sentenceKey);

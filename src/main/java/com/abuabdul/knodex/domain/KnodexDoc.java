@@ -25,9 +25,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * @author abuabdul
- *
+ * 
+ *         MongoDB document object to hold the mongodb retrieved bson documents.
+ *         Default collection name is the class name and custom collection name
+ *         is specified in the type level.
+ * 
  */
-@Document(collection="knodexdoc")
+@Document(collection = "knodexdoc")
 @CompoundIndexes({ @CompoundIndex(name = "indexBy_sentences", def = "{'key': 1, 'indexBy': 1}") })
 public class KnodexDoc {
 

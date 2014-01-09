@@ -22,8 +22,12 @@ import java.util.SortedMap;
 
 /**
  * @author abuabdul
- *
+ * 
  * @param <T>
+ * 
+ *            This is the Document Service level contract interface. Document
+ *            Service class implements this interface to interact with MongoDB
+ *            repositories layer classes.
  */
 public interface KxDocumentService<T> {
 
@@ -34,7 +38,7 @@ public interface KxDocumentService<T> {
 	public List<T> listSentencesByIndexer(String key);
 
 	public SortedMap<String, List<T>> listAllSentences();
-	
+
 	public Long getTotalRecordsSize();
 
 }

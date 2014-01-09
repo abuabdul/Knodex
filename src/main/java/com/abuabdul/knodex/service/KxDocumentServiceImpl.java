@@ -33,7 +33,10 @@ import com.abuabdul.knodex.domain.KnodexDoc;
 
 /**
  * @author abuabdul
- *
+ * 
+ *         This class instantiates the repository class instance to interact
+ *         with the MongoDB database. It has basic methods to insert, remove,
+ *         list by key and list all sentences.
  */
 @Service
 public class KxDocumentServiceImpl implements KxDocumentService<KnodexDoc> {
@@ -51,7 +54,7 @@ public class KxDocumentServiceImpl implements KxDocumentService<KnodexDoc> {
 		log.debug("Entered KxDocumentServiceImpl.indexASentence method");
 		KnodexDoc dbKnodexDoc = knodexDAO.save(entity);
 		if (dbKnodexDoc != null && !StringUtils.isEmpty(dbKnodexDoc.getId())) {
-			log.debug("Added the sentence with the key=" + dbKnodexDoc.getKey() + " ,indexBy = " + dbKnodexDoc.getIndexBy());
+			log.debug("Added the sentence with the key = " + dbKnodexDoc.getKey() + " ,indexBy = " + dbKnodexDoc.getIndexBy());
 			return true;
 		}
 		return false;
@@ -70,6 +73,7 @@ public class KxDocumentServiceImpl implements KxDocumentService<KnodexDoc> {
 
 	public List<KnodexDoc> listSentencesByIndexer(String key) {
 		log.debug("Entered KxDocumentServiceImpl.listSentencesByIndexer method");
+		log.debug("Find or list sentences by key " + key);
 		List<KnodexDoc> listByIndex = knodexDAO.findByKey(key);
 		return listByIndex;
 	}
@@ -83,10 +87,12 @@ public class KxDocumentServiceImpl implements KxDocumentService<KnodexDoc> {
 		List<KnodexDoc> listAllKnodex = knodexDAO.findAll();
 
 		if (listAllKnodex != null && !listAllKnodex.isEmpty()) {
+			log.debug("The size of the overall key with sentences " + listAllKnodex.size());
 			fullListOfSentences = new TreeMap<String, List<KnodexDoc>>();
 			for (KnodexDoc knodexDoc : listAllKnodex) {
 				if (knodexDoc != null && !StringUtils.isEmpty(knodexDoc.getKey())) {
 					indexKey = knodexDoc.getKey();
+					log.debug("Index key to get the list of sentences for each indexBy value " + indexKey);
 					if (!fullListOfSentences.isEmpty() && fullListOfSentences.containsKey(indexKey)) {
 						indexKnodexList = fullListOfSentences.get(indexKey);
 						if (indexKnodexList == null) {
@@ -106,7 +112,9 @@ public class KxDocumentServiceImpl implements KxDocumentService<KnodexDoc> {
 	}
 
 	public Long getTotalRecordsSize() {
+		log.debug("Entered KxDocumentServiceImpl.getTotalRecordsSize method");
 		Long totalCount = knodexDAO.count();
+		log.debug("Total count retrieved from the default collection " + totalCount);
 		return totalCount;
 	}
 
