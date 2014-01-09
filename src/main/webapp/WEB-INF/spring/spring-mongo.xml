@@ -34,7 +34,7 @@
 	</mongo:mongo>
     
     <!-- Default bean name is 'mongoDbFactory' -->
-	<mongo:db-factory dbname="${mongo.databaseName}" mongo-ref="mongo" />
+	<mongo:db-factory dbname="${mongo.databaseName}" mongo-ref="mongo" username="${mongo.username}" password="${mongo.password}" />
 
 	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
 		<constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
