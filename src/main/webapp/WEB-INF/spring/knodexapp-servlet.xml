@@ -19,16 +19,6 @@
 	  <property name="order" value="0" />
     </bean>
 
-    <!-- <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix">
-			<value>/WEB-INF/pages/</value>
-		</property>
-		<property name="suffix">
-			<value>.jsp</value>
-		</property>
-		<property name="order" value="1" />
-	</bean> -->
-	
 	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
 		<property name="definitions">
 			<list>

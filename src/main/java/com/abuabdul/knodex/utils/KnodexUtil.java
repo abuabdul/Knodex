@@ -52,7 +52,9 @@ public class KnodexUtil {
 				String[] index = knodexDoc.getIndexSentence().split("-");
 				if (index.length > 1) {
 					log.debug("Knodex Sentence actual indexBy value "+ index[0]);
+					log.debug("Knodex Sentence actual sentence value "+ index[1]);
 					knodexDoc.setIndexBy(index[0].trim());
+					knodexDoc.setIndexSentence(index[1].trim());
 				} else {
 					knodexDoc.setIndexBy(sentenceKey);
 				}

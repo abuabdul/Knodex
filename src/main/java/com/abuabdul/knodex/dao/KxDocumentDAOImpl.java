@@ -43,7 +43,7 @@ import com.abuabdul.knodex.domain.KnodexDoc;
 public class KxDocumentDAOImpl implements KxDocumentDAO<KnodexDoc> {
 
 	// Define a static logger variable so that it references the
-	// Logger instance named "KnodexDAOImpl".
+	// Logger instance named "KxDocumentDAOImpl".
 	private static final Logger log = LogManager.getLogger(KxDocumentDAOImpl.class.getName());
 
 	@Autowired

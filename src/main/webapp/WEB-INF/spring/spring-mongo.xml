@@ -25,11 +25,11 @@
     </bean>
     
 	<!-- Default bean name is 'mongo' -->
-	<mongo:mongo host="${OPENSHIFT_MONGODB_DB_HOST}" port="${OPENSHIFT_MONGODB_DB_PORT}">
+	<mongo:mongo host="${mongo.host}" port="${mongo.port}">
 	</mongo:mongo>
     
     <!-- Default bean name is 'mongoDbFactory' -->  
-	<mongo:db-factory dbname="${OPENSHIFT_MONGODB_DB_KNODEX}" mongo-ref="mongo" username="${OPENSHIFT_MONGODB_DB_USERNAME}" password="${OPENSHIFT_MONGODB_DB_PASSWORD}" />
+	<mongo:db-factory dbname="${mongo.databaseName}" mongo-ref="mongo"/>
 
 	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
 		<constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
