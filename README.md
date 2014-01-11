@@ -1,6 +1,6 @@
 <h1 id="knodex"><a href="#knodex" class="anchor">Knodex</a></h1>
 
-<p>Knodex is an indexing tool to add and index your learning/knowledge. It is named after from these words KNOwledge-InDEX. It is a web application that can be run on top of any web servers. It is using popular NoSQL MongoDB, a document database at the backend to store the sentences. This application is simple and easy to work. It uses Spring MVC framework to work with UI pages.</p>
+<p>Knodex is an indexing tool to add and index your learning/knowledge. It is named after from these words KNOwledge-InDEX. It is a web application that can be run on top of any web servers. It is using popular NoSQL MongoDB, a document database at the backend to store the sentences. This application is simple and easy to work. It uses Spring MVC framework on top of bootstrap template.</p>
 
 <h2 id="features"><a href="#features" class="anchor">Features</a></h2>
 
