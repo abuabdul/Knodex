@@ -30,7 +30,7 @@
 </ul>
 
 
-<h2 id="install-and-contribute"><a href="#install-and-contribute" class="anchor">Install and Contribute</a></h2>
+<h2 id="install"><a href="#install" class="anchor">Install</a></h2>
 
 <p>Just clone the repo:</p>
 
