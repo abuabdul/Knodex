@@ -8,7 +8,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a href="http://abuabdul.com" class="navbar-brand">&copy; abuabdul.com 2013</a>
+          <a href="http://abuabdul.com" class="navbar-brand">&copy; abuabdul.com 2013-2014</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">

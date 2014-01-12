@@ -6,7 +6,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Knodex is an indexing application to order and index whatever we have gathered into the it.">
+    <meta name="description" content="Knodex is an indexing tool to index and sort the learning whatever we have gathered into the it.">
+    <meta name="keywords" content="Knodex, abuabdul.com knodex, knodex indexing tool, mongodb knodex, mongodb abuabdul, abuabdul mongodb integration, spring mongodb integration">
     <meta name="author" content="Abubacker Siddik A, abuabdul.com">
     <link rel="shortcut icon" href="ico/favicon.png">
 
