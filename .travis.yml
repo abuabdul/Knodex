@@ -1,0 +1,19 @@
+language: java
+
+install: true
+
+script: mvn clean compile test
+
+os:
+   - linux
+
+jdk:
+   - oraclejdk7
+   - oraclejdk8
+
+branches:
+   only:
+      - master
+
+notifications:
+   email: false
