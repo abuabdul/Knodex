@@ -15,7 +15,7 @@
 	-moz-box-shadow: 6px 6px 4px 0px rgba(153, 153, 153, 0.75);
 	box-shadow: 6px 6px 4px 0px rgba(153, 153, 153, 0.75);
 	/**
-	 * - If you set a background-image, border/padding/background-color will be ingnored.
+	 * - If you set a background-image, border/padding/background-color will be ignored.
 	 *   You can set any padding to .tip-inner instead if you need.
 	 * - If you want a tiled background-image and border/padding for the tip,
 	 *   set the background-image to .tip-inner instead.
